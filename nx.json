@@ -17,6 +17,11 @@
   },
   "projects": {
     "imbd-react": { "tags": [] },
-    "imbd-react-e2e": { "tags": [], "implicitDependencies": ["imbd-react"] }
+    "imbd-react-e2e": { "tags": [], "implicitDependencies": ["imbd-react"] },
+    "common-components": { "tags": [] },
+    "interfaces": { "tags": [] },
+    "core-components": { "tags": [] },
+    "constants": { "tags": [] },
+    "utils": { "tags": [] }
   }
 }

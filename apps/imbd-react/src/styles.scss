@@ -1,1 +1,94 @@
-/* You can add global styles to this file, and also import other style files */
+.noOverflowForce {
+  overflow-y: hidden !important;
+}
+
+// .d-flex {
+//   display: flex;
+// }
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.p-r {
+  position: relative;
+}
+
+.p-ab {
+  position: absolute;
+}
+
+.text-shadow-0 {
+  text-shadow: 0 0 0;
+}
+
+.z-100 {
+  z-index: 100;
+}
+
+.rem-1 {
+  font-size: 1rem !important;
+}
+
+.clr-b {
+  color: black;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.truncate {
+  width: 60px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  top: 2px;
+  position: relative;
+  height: 19px;
+}
+
+.d-inlineBlock {
+  display: inline-block;
+}
+
+.secondaryClr {
+  color: var(--secondary) !important;
+}
+
+.blue-clr {
+  color: blue;
+}
+
+.b-clr {
+  color: #000;
+}
+.editIcon {
+  color: #4b7cf3;
+  cursor: pointer;
+}
+
+.ml-half {
+  margin-left: 0.5rem !important;
+}
