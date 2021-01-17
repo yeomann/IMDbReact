@@ -1,8 +1,135 @@
 {
   "version": 2,
-
-  "projects": {},
+  "projects": {
+    "imbd-react": {
+      "root": "apps/imbd-react",
+      "sourceRoot": "apps/imbd-react/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/imbd-react",
+            "index": "apps/imbd-react/src/index.html",
+            "main": "apps/imbd-react/src/main.tsx",
+            "polyfills": "apps/imbd-react/src/polyfills.ts",
+            "tsConfig": "apps/imbd-react/tsconfig.app.json",
+            "assets": [
+              "apps/imbd-react/src/favicon.ico",
+              "apps/imbd-react/src/assets"
+            ],
+            "styles": [
+              "apps/imbd-react/src/styles.scss"
+            ],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/imbd-react/src/environments/environment.ts",
+                  "with": "apps/imbd-react/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "imbd-react:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "imbd-react:build:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/imbd-react/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/imbd-react"
+          ],
+          "options": {
+            "jestConfig": "apps/imbd-react/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "imbd-react-e2e": {
+      "root": "apps/imbd-react-e2e",
+      "sourceRoot": "apps/imbd-react-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/imbd-react-e2e/cypress.json",
+            "tsConfig": "apps/imbd-react-e2e/tsconfig.e2e.json",
+            "devServerTarget": "imbd-react:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "imbd-react:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/imbd-react-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      }
+    }
+  },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
-  }
+    "defaultCollection": "@nrwl/react"
+  },
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "style": "scss",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "scss"
+      },
+      "library": {
+        "style": "scss",
+        "linter": "eslint"
+      }
+    }
+  },
+  "defaultProject": "imbd-react"
 }
