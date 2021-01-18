@@ -27,7 +27,6 @@ const listApiClient: AxiosInstance = axios.create({
     // 'X-Custom-Header': 'foobar'
     Accept: 'application/json',
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*',
   },
 });
 
