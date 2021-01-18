@@ -12,5 +12,12 @@ export const USERS = {
 };
 
 export const IMDB = {
-  POPULAR: 'movie/popular',
+  GET_POPULAR_EQ: 'movie/popular',
+  GET_FAV_EQ: 'list/7072623',
+  SET_FAV_EQ: 'list/7072623/items',
+  REMOVE_FAV_EQ: 'list/7072623/items',
+  GET_WATCHL_EQ: 'list/7072622',
+  SET_WATCHL_EQ: 'list/7072622/items',
+  REMOVE_WATCHL_EQ: 'list/7072622/items',
+  SEARCH_MOVIES: 'search/movie',
 };

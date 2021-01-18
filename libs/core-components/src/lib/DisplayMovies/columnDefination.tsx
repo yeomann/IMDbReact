@@ -1,23 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Popconfirm, message, Typography, Tooltip } from 'antd'
-import { StarOutlined } from '@ant-design/icons'
+import { DeleteOutlined, StarOutlined } from '@ant-design/icons'
 import localStore from 'store'
 import { TableColumnslocalStorage } from '@imbd-react-testing/constants'
 import moment from 'moment'
+import { MovieEvent } from '@imbd-react-testing/interfaces'
 const { Paragraph } = Typography
 const dataNow = (date: Date | string) => moment(date)
 
-const MoviesColumn = (): any => {
+const MoviesColumn = (showDeleteFav: boolean, showDeleteWL: boolean, eventHandler: (id: number, eventType: MovieEvent) => void): any => {
   // get columns config from the local storage
   const columnsConfig: {
     visible: { id: string; content: string }[]
     visibleOrder: { string: number }
     hidden: { id: string; content: string }[]
   } = localStore.get(TableColumnslocalStorage.moviesConfigs)
-  // confirm delete
-  function confirm(e: React.MouseEvent<HTMLElement, MouseEvent> | undefined, id: string) {
+
+  // confirm fave
+  function confirm(e: React.MouseEvent<HTMLElement, MouseEvent> | undefined, id: number, eventType: MovieEvent) {
     e?.preventDefault()
     console.log(id)
+    eventHandler(id, eventType)
     // message.success('Click on Yes')
   }
 
@@ -61,26 +64,44 @@ const MoviesColumn = (): any => {
     {
       title: 'Action',
       fixed: 'right',
-      width: '20%',
+      width: '15%',
       // ellipsis: true,
       render: (node) => {
         // console.log(record)
-        return (
-          <span>
-            <Popconfirm
+        if(showDeleteFav) return (
+          <Popconfirm
               title="Are you sure?"
-              onConfirm={(e) => confirm(e, node.id)}
+              onConfirm={(e) => confirm(e, node.id, MovieEvent.REMOVE_FAV)}
               onCancel={cancel}
               okText="Yes"
               cancelText="No"
             >
-              <Tooltip title="Set as Favourite">
-                <Button type="dashed" danger shape="circle" icon={<StarOutlined />} />
+              <Tooltip title="Remove Favourite?">
+                <Button type="dashed" danger shape="circle" icon={<DeleteOutlined />} />
               </Tooltip>
             </Popconfirm>
+        )
+        if(showDeleteWL) return (
+          <Popconfirm
+              title="Are you sure?"
+              onConfirm={(e) => confirm(e, node.id, MovieEvent.REMOVE_WATCHL)}
+              onCancel={cancel}
+              okText="Yes"
+              cancelText="No"
+            >
+              <Tooltip title="Remove Watch later Movie!">
+                <Button type="dashed" danger shape="circle" icon={<DeleteOutlined />} />
+              </Tooltip>
+            </Popconfirm>
+        )
+        return (
+          <span>
+            <Tooltip title="Set as Favourite">
+              <Button type="dashed" danger shape="circle" icon={<StarOutlined />} onClick={(e) => confirm(e, node.id, MovieEvent.SET_FAV)} />
+            </Tooltip>
             <Popconfirm
               title="Are you sure?"
-              onConfirm={(e) => confirm(e, node.id)}
+              onConfirm={(e) => confirm(e, node.id, MovieEvent.SET_WATCHL)}
               onCancel={cancel}
               okText="Yes"
               cancelText="No"

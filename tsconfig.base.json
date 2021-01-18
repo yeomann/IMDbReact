@@ -23,7 +23,8 @@
         "libs/core-components/src/index.ts"
       ],
       "@imbd-react-testing/constants": ["libs/constants/src/index.ts"],
-      "@imbd-react-testing/utils": ["libs/utils/src/index.ts"]
+      "@imbd-react-testing/utils": ["libs/utils/src/index.ts"],
+      "@imbd-react/*": ["app/imbd-react/src/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

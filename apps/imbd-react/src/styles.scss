@@ -2,9 +2,9 @@
   overflow-y: hidden !important;
 }
 
-// .d-flex {
-//   display: flex;
-// }
+.d-flex {
+  display: flex !important;
+}
 
 .justify-around {
   justify-content: space-around;
@@ -91,4 +91,8 @@
 
 .ml-half {
   margin-left: 0.5rem !important;
+}
+
+.w-100 {
+  width: 100%;
 }
