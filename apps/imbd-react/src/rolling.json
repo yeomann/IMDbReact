@@ -1,6 +1,6 @@
 {
   "REST_EP": "https://api.themoviedb.org/3/",
   "REST_EP_4": "https://api.themoviedb.org/4/",
-  "TOKEN": "",
-  "TOKEN_4": ""
+  "TOKEN": "c90044e4a17b20c0c38a37360d102b85",
+  "TOKEN_4": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2ZXJzaW9uIjoxLCJzdWIiOiI2MDAzMmM2OGE5YjlhNDAwM2Y4ODA3MmYiLCJuYmYiOjE2MTA5MjI2ODksImF1ZCI6ImM5MDA0NGU0YTE3YjIwYzBjMzhhMzczNjBkMTAyYjg1IiwianRpIjoiMjczNjU1NCIsInNjb3BlcyI6WyJhcGlfcmVhZCIsImFwaV93cml0ZSJdfQ.4ptrsMRyHRF2jFWf6C5hZqmWkMtNLJIsxsY4P79MA1Q"
 }
