@@ -26,7 +26,7 @@ phases:
       - yarn build
   post_build:
     commands:
-      - printf '{"GQL_EP":"%s","GQL_WSS_EP":"%s","REST_EP":"%s"}' $GQL_EP $GQL_WSS_EP $REST_EP > ./dist/rolling.json
+      - printf '{"REST_EP":"%s","REST_EP_4":"%s","TOKEN":"%s","TOKEN_4":"%s"}' $REST_EP $REST_EP_4 $TOKEN $TOKEN_4 > ./dist/apps/imdb-react/rolling.json
       - echo ls
       - echo Build completed on `date`
       - if [ -z $CODEBUILD_BUILD_SUCCEDING ]; then echo "Successfully built"; fi
