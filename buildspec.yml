@@ -32,13 +32,13 @@ phases:
       - if [ -z $CODEBUILD_BUILD_SUCCEDING ]; then echo "Successfully built"; fi
 
       # copy the contents of /dist to S3
-      - aws s3 cp --recursive --acl public-read ./dist $S3_BUCKET
+      - aws s3 cp --recursive --acl public-read ./dist/apps/imbd-react $S3_BUCKET
       # set the cache-control headers for index.html to prevent
       # browser caching
       - >
         aws s3 cp --acl public-read 
         --cache-control="max-age=0, no-cache, no-store, must-revalidate" 
-        ./dist/index.html $S3_BUCKET
+        ./dist/apps/imdb-react/index.html $S3_BUCKET
       - >
 artifacts:
   files:
